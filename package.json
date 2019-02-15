@@ -11,7 +11,7 @@
   "author": "Luis Lau",
   "license": "GPL-3.0",
   "dependencies": {
-    "electron": "^4.0.4"
+    "electron": "^4.0.5"
   },
   "devDependencies": {
     "css-loader": "^2.1.0",
