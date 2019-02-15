@@ -6,7 +6,9 @@
   "scripts": {
     "start": "electron .",
     "build": "webpack",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --prune=true --out=release-builds"
+
   },
   "author": "Luis Lau",
   "license": "GPL-3.0",
@@ -15,6 +17,7 @@
   },
   "devDependencies": {
     "css-loader": "^2.1.0",
+    "electron-packager": "^13.0.1",
     "node-sass": "^4.11.0",
     "sass-loader": "^7.1.0",
     "vue": "^2.6.6",
