@@ -25,6 +25,7 @@ export default {
 .task-controls {
   display: flex;
   width: auto;
+  justify-content: flex-end;
   button {
     padding: 0.5rem;
     color: white;
