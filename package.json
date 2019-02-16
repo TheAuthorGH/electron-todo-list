@@ -8,7 +8,6 @@
     "build": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1",
     "deploy-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --prune=true --out=release-builds"
-
   },
   "author": "Luis Lau",
   "license": "GPL-3.0",
@@ -24,7 +23,7 @@
     "vue-loader": "^15.6.2",
     "vue-template-compiler": "^2.6.6",
     "vuex": "^3.1.0",
-    "webpack": "^4.29.3",
+    "webpack": "^4.29.4",
     "webpack-cli": "^3.2.3"
   }
 }
