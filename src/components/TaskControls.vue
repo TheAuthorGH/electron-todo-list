@@ -26,11 +26,17 @@ export default {
   display: flex;
   width: auto;
   justify-content: flex-end;
+  padding: 0.5rem;
   button {
-    padding: 0.5rem;
+    width: 2rem;
+    height: 2rem;
     color: white;
+    border-radius: 50%;
     &.task-add {
       background-color: #4A4;
+      &:hover {
+        background-color: #6C6;
+      }
     }
   }
 }

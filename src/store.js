@@ -12,7 +12,8 @@ export default new Vuex.Store({
   mutations: {
     createTask(state) {
       const task = {
-        
+        status: 'todo',
+        description: 'Lorem ipsum dolor sit amet'
       };
       state.tasks.push(task);
       return task;
