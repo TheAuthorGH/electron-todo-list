@@ -2,7 +2,7 @@
   <div class="task-list" v-if="tasks.length">
     <input v-model="searchQuery" class="task-list-search" placeholder="Search..."/>
     <ul class="task-list-results">
-      <li class="task-snippet" v-for="(task, index) in tasks" :key="index">
+      <li class="task-snippet" v-for="(task, index) in displayTasks" :key="index">
         {{task.description}}
       </li>
     </ul>
@@ -21,11 +21,14 @@ export default {
   },
   computed: {
     ...Vuex.mapState({
-      tasks(state) {
-        return state.tasks.filter(task => task.description.includes(this.searchQuery));
-      }
+      tasks: 'tasks'
     }),
-    ...Vuex.mapGetters(['tasksWithStatus'])
+    ...Vuex.mapGetters(['tasksWithStatus']),
+    displayTasks() {
+      return this.searchQuery
+        ? this.tasks.filter(task => task.description.includes(this.searchQuery))
+        : this.tasks;
+    }
   }
 };
 </script>
