@@ -7,7 +7,10 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     tasks: [],
-    currentTask: null
+    selectedTask: null,
+    taskFilters: {
+      searchQuery: null
+    }
   },
   mutations: {
     createTask(state) {
@@ -17,9 +20,21 @@ export default new Vuex.Store({
       };
       state.tasks.push(task);
       return task;
+    },
+    clearTasks(state) {
+      state.tasks = [];
+    },
+    setSelectedTask(state, task) {
+      state.selectedTask = task;
     }
   },
   getters: {
-    tasksWithStatus: state => status => state.tasks.filter(task => task.status === status)
+    filteredTasks(state) {
+      const filters = state.taskFilters;
+      if(filters.searchQuery)
+        return state.tasks.filter(task => task.description.includes(filters.searchQuery))
+      else
+        return state.tasks;
+    }
   }
 });

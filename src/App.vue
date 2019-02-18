@@ -2,6 +2,7 @@
   <div id="app">
     <section class="sidebar">
       <task-controls/>
+      <task-filters/>
       <task-list/>
     </section>
     <main>
@@ -12,12 +13,14 @@
 
 <script>
 import TaskControls from './components/TaskControls';
+import TaskFilters from './components/TaskFilters';
 import TaskList from './components/TaskList';
 import WelcomeScreen from './components/WelcomeScreen';
 
 export default {
   components: {
     TaskControls,
+    TaskFilters,
     TaskList,
     WelcomeScreen
   },

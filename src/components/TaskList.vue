@@ -1,8 +1,7 @@
 <template>
-  <div class="task-list" v-if="tasks.length">
-    <input v-model="searchQuery" class="task-list-search" placeholder="Search..."/>
+  <div class="task-list" v-if="filteredTasks.length">
     <ul class="task-list-results">
-      <li class="task-snippet" v-for="(task, index) in displayTasks" :key="index">
+      <li class="task-snippet" v-for="(task, index) in filteredTasks" :key="index">
         {{task.description}}
       </li>
     </ul>
@@ -20,15 +19,7 @@ export default {
     };
   },
   computed: {
-    ...Vuex.mapState({
-      tasks: 'tasks'
-    }),
-    ...Vuex.mapGetters(['tasksWithStatus']),
-    displayTasks() {
-      return this.searchQuery
-        ? this.tasks.filter(task => task.description.includes(this.searchQuery))
-        : this.tasks;
-    }
+    ...Vuex.mapGetters(['filteredTasks'])
   }
 };
 </script>
