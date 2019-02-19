@@ -1,15 +1,15 @@
 <template>
   <form class="task-filters">
-    <input placeholder="Search..."/>
+    <input v-model.trim="taskFilters.searchQuery" placeholder="Search..."/>
   </form>
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-      searchQuery: null
-    };
+  computed: {
+    ...Vuex.mapState({
+      taskFilters: 'taskFilters'
+    })
   }
 };
 </script>
@@ -21,6 +21,7 @@ export default {
     background-color: white;
     margin: 0.5rem;
     padding: 0.5rem;
+    width: 100%;
   }
 }
 </style>

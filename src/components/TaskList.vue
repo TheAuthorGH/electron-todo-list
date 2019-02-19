@@ -1,18 +1,25 @@
 <template>
-  <div class="task-list" v-if="filteredTasks.length">
+  <section class="task-list" v-if="filteredTasks.length">
     <ul class="task-list-results">
-      <li class="task-snippet" v-for="(task, index) in filteredTasks" :key="index">
-        {{task.description}}
-      </li>
+      <task-list-item
+        v-for="(task, index) in filteredTasks"
+        :key="index"
+        :task="task"
+      />
     </ul>
-  </div>
-  <div class="task-list-empty" v-else>
+  </section>
+  <section class="task-list-empty" v-else>
     Once you add tasks, they will show up here.
-  </div>
+  </section>
 </template>
 
 <script>
+import TaskListItem from './TaskListItem';
+
 export default {
+  components: {
+    TaskListItem
+  },
   data() {
     return {
       searchQuery: null
@@ -30,9 +37,6 @@ export default {
 .task-list {
   display: flex;
   flex-direction: column;
-  .task-snippet {
-    padding: 0.5rem;
-  }
 }
 .task-list-empty {
   padding: 1.5rem;

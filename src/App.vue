@@ -7,6 +7,7 @@
     </section>
     <main>
       <welcome-screen v-if="tasks.length < 1"/>
+      <task-viewer/>
     </main>
   </div>
 </template>
@@ -48,7 +49,7 @@ body {
   display: flex;
   .sidebar {
     background-color: $color-bg-grey;
-    width: 25%;
+    width: 18rem;
     display: flex;
     flex-direction: column;
   }

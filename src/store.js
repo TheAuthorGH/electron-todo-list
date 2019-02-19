@@ -16,7 +16,8 @@ export default new Vuex.Store({
     createTask(state) {
       const task = {
         status: 'todo',
-        description: 'Lorem ipsum dolor sit amet'
+        description: 'Lorem ipsum dolor sit amet',
+        creationDate: new Date()
       };
       state.tasks.push(task);
       return task;
@@ -32,7 +33,7 @@ export default new Vuex.Store({
     filteredTasks(state) {
       const filters = state.taskFilters;
       if(filters.searchQuery)
-        return state.tasks.filter(task => task.description.includes(filters.searchQuery))
+        return state.tasks.filter(task => task.description.toLowerCase().includes(filters.searchQuery.toLowerCase()));
       else
         return state.tasks;
     }
