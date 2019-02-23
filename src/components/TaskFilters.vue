@@ -1,6 +1,9 @@
 <template>
   <form class="task-filters">
-    <input v-model.trim="taskFilters.searchQuery" placeholder="Search..."/>
+    <input
+      v-model.trim="taskFilters.searchQuery"
+      placeholder="Search..."
+    />
   </form>
 </template>
 
